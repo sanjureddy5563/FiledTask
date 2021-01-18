@@ -1,0 +1,263 @@
+# Different Testing Scenarios with Sample Payloads:-
+
+1) Successful Case with amount > 500:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"05/21",
+    "security_code":"321",
+    "amount":5400.00
+}
+
+Response:-
+
+{
+    "code": 200,
+    "message": "Payment Processed Successfully with Premium Payment Gateway"
+}
+
+2) Successful Case with amount between 21-500:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"05/21",
+    "security_code":"321",
+    "amount":340.00
+}
+
+Response:-
+
+{
+    "code": 200,
+    "message": "Payment Processed Successfully with Expensive Payment Gateway"
+}
+
+3) Successful Case with amount < 20:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"05/21",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 200,
+    "message": "Payment Processed Successfully with Cheap Payment Gateway"
+}
+
+4) Failed Case for Invalid Card No:
+
+Payload:-
+
+{
+    "card_no":"4639170003652156",
+    "card_holder":"sanjeeva",
+    "expiry_date":"05/21",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Enter Valid Card Number"
+}
+
+5) Failed Case for Card Holder Value with other than alphabets:-
+
+Payload:
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjee12",
+    "expiry_date":"05/21",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:
+{
+    "code": 400,
+    "message": "Card Holder Should Alphabets Only"
+}
+
+6) Failed Case for Wrong Expiry Date Format:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"05-21",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Expiry Should be MM/YY format"
+}
+
+7) Failed Case for Expiry Date with Past Date:
+
+Payload:
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"12/19",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Expiry Date Cannot be Past Date"
+}
+
+8) Failed Case for security_code with values other than digits:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"12/24",
+    "security_code":"3da",
+    "amount":15.68
+}
+
+Response:
+
+{
+    "code": 400,
+    "message": "Security Code Should be Digits"
+}
+
+9) Failed Case for security_code with different data length:
+
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"12/24",
+    "security_code":"3214",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Security Code Should be 3 Digits Only"
+}
+
+10) Failed Case as amount in entered as string:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"12/24",
+    "security_code":"321",
+    "amount":"15.68"
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Amount Should Be Positive Decimal Value"
+}
+
+11) Failed Case As card_no not provided:
+
+Payload:-
+
+{
+    "card_holder":"sanjeeva",
+    "expiry_date":"12/24",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Card No is Mandatory"
+}
+
+12) Failed Case As card_holder not provided:
+
+Payload:
+
+{
+    "card_no":"4639170003077858",
+    "expiry_date":"12/24",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Card Holder is Mandatory"
+}
+
+13) Failed Case As Expiry_date not provided:
+
+Payload:-
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "security_code":"321",
+    "amount":15.68
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Expiry Date is Mandatory"
+}
+
+14) Failed Case As amount not provided:
+
+Payload:
+
+{
+    "card_no":"4639170003077858",
+    "card_holder":"sanjeeva",
+    "expiry_date":"12/24",
+    "security_code":"321"
+}
+
+Response:-
+
+{
+    "code": 400,
+    "message": "Amount is Mandatory"
+}
+

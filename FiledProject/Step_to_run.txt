@@ -1,0 +1,30 @@
+# 1) First clone the project for the github.
+
+# 2) Check whether python is installed if not install it from following:
+            https://www.python.org/downloads/windows/
+
+# 3) Install the Virtualenv for python using following command:
+            pip install virtualenv
+
+# 4) Create the Python Virtualenv and Activate it:
+            virtualenv environment-name   Ex:- virtualenv filed-task
+            -> cd filed-task/Scripts
+            -> activate
+
+# 5) Install the dependencies of the project.
+    goto-> project folder where manage.py is located and run following command:
+
+            pip install -r requirements.txt --> Will install all the requirements for the project.
+
+# 6) Run the Project:-
+            python manage.py runserver --> now project will be running at localhost:8000
+
+# 7) Now open Postman Software to test the apis.
+            Make a "POST" request to http://localhost:8000/payment/ endpoint.
+
+# 8) Different Scenario of Testing Payloads are provided in the sample file.
+    use the respective payload and check the response..
+
+# 9) While Using the Postman, Make sure that in headers "Content-Type":"application/json".
+
+# 10) Screenshots how postman data should be passed and headers should be provided is given in the .png files. 
